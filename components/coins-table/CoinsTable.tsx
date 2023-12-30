@@ -1,8 +1,20 @@
-import { getCoins } from "@/services/apiCoins";
+import { getAllCoins, getTableCoins } from "@/services/apiCoins";
 import CoinRow, { type Coin } from "./CoinRow";
+import PaginationControl from "./PaginationControl";
 
-async function CoinsTable() {
-  const coins = await getCoins();
+async function CoinsTable({
+  page,
+  per_page,
+  start,
+  end,
+}: {
+  page: number;
+  per_page: number;
+  start: number;
+  end: number;
+}) {
+  const allCoins = await getAllCoins();
+  const coins = await getTableCoins(page, per_page);
 
   return (
     <div
@@ -28,13 +40,19 @@ async function CoinsTable() {
         <p className="m-6 text-center text-base">No data found.</p>
       ) : (
         <section className="my-1">
-          {coins.map((coin: Coin, index: number) => (
-            <CoinRow coin={coin} key={coin.id} number={index + 1} />
+          {coins.map((coin: Coin) => (
+            <CoinRow coin={coin} key={coin.id} />
           ))}
         </section>
       )}
 
-      <footer className="flex justify-center rounded-b-lg bg-gray-50 p-3 dark:bg-gray-900"></footer>
+      <footer className="flex justify-center rounded-b-lg bg-gray-50 p-3 dark:bg-gray-900">
+        <PaginationControl
+          hasNextPage={end < allCoins?.length}
+          hasPrevPage={start > 0}
+          maxPage={Math.ceil(allCoins?.length / per_page)}
+        />
+      </footer>
     </div>
   );
 }
