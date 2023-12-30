@@ -1,6 +1,6 @@
 import readUserSession from "@/utils/supabase/session";
 import { redirect } from "next/navigation";
-import SignOut from "./components/SignOut";
+import SignOut from "../../components/portfolio/SignOut";
 
 async function PortfolioPage() {
   const {

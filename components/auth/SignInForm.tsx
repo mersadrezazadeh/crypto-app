@@ -1,5 +1,5 @@
 import { useTransition } from "react";
-import { signInWithEmailAndPassword } from "../actions";
+import { signInWithEmailAndPassword } from "../../app/auth/actions";
 
 function SignInForm() {
   const [isPending, startTransition] = useTransition();
