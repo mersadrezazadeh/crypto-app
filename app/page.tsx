@@ -1,11 +1,13 @@
 import CoinsTable from "@/components/coins-table/CoinsTable";
 import Header from "../components/header/Header";
 
-export default function HomePage({
-  searchParams,
-}: {
-  searchParams: { [key: string]: string | string[] | undefined };
-}) {
+type HomePageProps = {
+  searchParams: {
+    [key: string]: string | string[] | undefined;
+  };
+};
+
+export default function HomePage({ searchParams }: HomePageProps) {
   const page = searchParams["page"] ?? "1";
   const per_page = searchParams["per_page"] ?? "100";
 
