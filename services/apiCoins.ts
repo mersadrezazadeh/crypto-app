@@ -17,3 +17,13 @@ export async function getTableCoins(page: number, per_page: number) {
 
   return response.json();
 }
+
+export async function getCoin(id: string) {
+  const response = await fetch(
+    `https://api.coingecko.com/api/v3/coins/${id}?market_data=true&community_data=true&developer_data=true
+&${API_KEY}`,
+    { next: { revalidate: 60 } }
+  );
+
+  return response.json();
+}

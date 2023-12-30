@@ -45,7 +45,7 @@ function CoinRow({ coin }: CoinRowProps) {
     >
       <div>{market_cap_rank}</div>
 
-      <Link href={`/${name.toLowerCase().replaceAll(" ", "_")}`}>
+      <Link href={`/${id}`}>
         <Image src={image} alt={`${name} icon`} width={32} height={32} />
         <span>{name}</span>
         <span>({symbol})</span>
