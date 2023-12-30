@@ -1,6 +1,9 @@
-import CoinRow from "./CoinRow";
+import { getCoins } from "@/services/apiCoins";
+import CoinRow, { type Coin } from "./CoinRow";
 
-function CoinsTable() {
+async function CoinsTable() {
+  const coins = await getCoins();
+
   return (
     <div
       role="table"
@@ -21,24 +24,18 @@ function CoinsTable() {
         <div>Last 7d</div>
       </div>
 
-      {/* <p className="m-6 text-center text-base">No data found.</p> */}
-      <section className="my-1">
-        <CoinRow coin={[]} />
-      </section>
+      {coins.length === 0 ? (
+        <p className="m-6 text-center text-base">No data found.</p>
+      ) : (
+        <section className="my-1">
+          {coins.map((coin: Coin, index: number) => (
+            <CoinRow coin={coin} key={coin.id} number={index + 1} />
+          ))}
+        </section>
+      )}
 
       <footer className="flex justify-center rounded-b-lg bg-gray-50 p-3 dark:bg-gray-900"></footer>
     </div>
-
-    // <section>
-    //   <Table columns="grid-cols-9">
-    //     <Table.Header>
-    //     </Table.Header>
-    //     <Table.Body
-    //       data={[]}
-    //       render={(coin) => <CoinRow coin={coin} key={coin.id} />}
-    //     />
-    //   </Table>
-    // </section>
   );
 }
 
