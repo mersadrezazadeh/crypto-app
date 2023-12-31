@@ -25,7 +25,7 @@ async function CoinsTable({
     >
       <div
         role="row"
-        className="flex items-center gap-2 rounded-t-lg border-b border-gray-100 bg-gray-50 px-3 py-4 font-semibold text-gray-600 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-300"
+        className="flex items-center gap-2 rounded-t-lg border-b border-gray-100 bg-gray-50 px-3 py-4 text-gray-600 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-300"
       >
         <div className="text-center w-[3%]">#</div>
         <div className="w-[4%]"></div>

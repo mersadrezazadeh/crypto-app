@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
+import Button from "../ui/Button";
 
 type PaginationControlProps = {
   hasNextPage: boolean;
@@ -21,23 +22,23 @@ function PaginationControl({
 
   return (
     <div className="text-gray-900 flex gap-8">
-      <button
+      <Button
         disabled={!hasPrevPage}
         onClick={() => router.push(`/?page=${+page - 1}&per_page=${per_page}`)}
       >
         Prev
-      </button>
+      </Button>
 
       <span>
         {page} / {maxPage}
       </span>
 
-      <button
+      <Button
         disabled={!hasNextPage}
         onClick={() => router.push(`/?page=${+page + 1}&Per_page=${per_page}`)}
       >
         Next
-      </button>
+      </Button>
     </div>
   );
 }
