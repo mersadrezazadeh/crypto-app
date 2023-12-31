@@ -8,6 +8,7 @@ type StatusBarProps = {
   value2: number;
   baseColor: string;
   bgColor: string;
+  textColor: string;
   width: string;
 };
 
@@ -16,12 +17,13 @@ function StatusBar({
   value2,
   baseColor,
   bgColor,
+  textColor,
   width,
 }: StatusBarProps) {
   return (
     <>
       <div className="flex justify-between max-w-[90%]">
-        <span>{formatCurrency(value1)}</span>
+        <span style={{ color: textColor }}>{formatCurrency(value1)}</span>
 
         <span>{formatCurrency(value2)}</span>
       </div>

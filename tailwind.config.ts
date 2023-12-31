@@ -19,7 +19,6 @@ const config: Config = {
       brand: {
         100: "#ebebfd",
         400: "#7878fa",
-        500: "#627eea",
         600: "#424286",
         700: "#353570",
         900: "#1e1932",
@@ -41,6 +40,7 @@ const config: Config = {
       green: { 100: "#01f1e3", 200: "#00b1a7" },
       red: { 200: "#fe2264" },
       orange: { 200: "#f7931A" },
+      blue: { 200: "#627eea" },
     },
   },
   plugins: [],

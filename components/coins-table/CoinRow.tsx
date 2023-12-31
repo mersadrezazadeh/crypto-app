@@ -74,8 +74,9 @@ function CoinRow({ coin }: CoinRowProps) {
         <StatusBar
           value1={total_volume}
           value2={market_cap}
-          baseColor="#ddd"
-          bgColor="hsl(284, 93%, 73%)"
+          baseColor="#9ca3af"
+          bgColor="#627eea"
+          textColor="#627eea"
           width="90%"
         />
       </div>
@@ -84,8 +85,9 @@ function CoinRow({ coin }: CoinRowProps) {
         <StatusBar
           value1={circulating_supply}
           value2={total_supply}
-          baseColor="#ddd"
-          bgColor="hsl(284, 93%, 73%)"
+          baseColor="#9ca3af"
+          bgColor="#f7931A"
+          textColor="#f7931A"
           width="90%"
         />
       </div>
