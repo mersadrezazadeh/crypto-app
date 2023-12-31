@@ -17,7 +17,9 @@ export default function HomePage({ searchParams }: HomePageProps) {
   return (
     <>
       <Header />
-      <CoinsTable page={+page} per_page={+per_page} start={start} end={end} />
+      <main className="container">
+        <CoinsTable page={+page} per_page={+per_page} start={start} end={end} />
+      </main>
     </>
   );
 }

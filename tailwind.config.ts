@@ -13,6 +13,7 @@ const config: Config = {
         screen: "100dvh",
       },
     },
+    container: { center: true },
     fontFamily: {
       sans: ["var(--font-inter)"],
     },
