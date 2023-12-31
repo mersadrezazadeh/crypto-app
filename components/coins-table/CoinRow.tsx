@@ -74,7 +74,6 @@ function CoinRow({ coin }: CoinRowProps) {
         <StatusBar
           value1={total_volume}
           value2={market_cap}
-          symbol="$"
           baseColor="#ddd"
           bgColor="hsl(284, 93%, 73%)"
           width="90%"
@@ -85,7 +84,6 @@ function CoinRow({ coin }: CoinRowProps) {
         <StatusBar
           value1={circulating_supply}
           value2={total_supply}
-          symbol="$"
           baseColor="#ddd"
           bgColor="hsl(284, 93%, 73%)"
           width="90%"
