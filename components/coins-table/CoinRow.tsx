@@ -3,6 +3,7 @@ import Link from "next/link";
 import Sparkline from "./Sparkline";
 import { formatCurrency } from "@/utils/helpers";
 import PriceChange from "../ui/PriceChange";
+import StatusBar from "../ui/StatusBar";
 
 export type Coin = {
   id: string;
@@ -38,7 +39,7 @@ function CoinRow({ coin }: CoinRowProps) {
     price_change_percentage_1h_in_currency,
     price_change_percentage_24h_in_currency,
     price_change_percentage_7d_in_currency,
-    sparkline_in_7d,
+    sparkline_in_7d: sparkline,
   } = coin;
 
   return (
@@ -54,7 +55,7 @@ function CoinRow({ coin }: CoinRowProps) {
         <span>({symbol})</span>
       </Link>
 
-      <div>${formatCurrency(current_price)}</div>
+      <div>$ {formatCurrency(current_price)}</div>
 
       <div>
         <PriceChange value={price_change_percentage_1h_in_currency} />
@@ -68,11 +69,30 @@ function CoinRow({ coin }: CoinRowProps) {
         <PriceChange value={price_change_percentage_7d_in_currency} />
       </div>
 
-      <div>7</div>
-      <div>8</div>
+      <div>
+        <StatusBar
+          value1={total_volume}
+          value2={market_cap}
+          symbol="$"
+          baseColor="#ddd"
+          bgColor="hsl(284, 93%, 73%)"
+          width="90%"
+        />
+      </div>
+
+      <div>
+        <StatusBar
+          value1={circulating_supply}
+          value2={total_supply}
+          symbol="$"
+          baseColor="#ddd"
+          bgColor="hsl(284, 93%, 73%)"
+          width="90%"
+        />
+      </div>
 
       <div className="h-full">
-        <Sparkline price={sparkline_in_7d.price} />
+        <Sparkline price={sparkline.price} />
       </div>
     </div>
   );
