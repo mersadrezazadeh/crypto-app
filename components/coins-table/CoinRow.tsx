@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import Sparkline from "./Sparkline";
+import { formatCurrency } from "@/utils/helpers";
+import PriceChange from "../ui/PriceChange";
 
 export type Coin = {
   id: string;
@@ -46,19 +48,25 @@ function CoinRow({ coin }: CoinRowProps) {
     >
       <div>{market_cap_rank}</div>
 
-      <Link href={`/${id}`}>
+      <Link href={`/${id}`} className="flex items-center">
         <Image src={image} alt={`${name} icon`} width={32} height={32} />
         <span>{name}</span>
         <span>({symbol})</span>
       </Link>
 
-      <div>{current_price}</div>
+      <div>${formatCurrency(current_price)}</div>
 
-      <div>{price_change_percentage_1h_in_currency.toFixed(2)}</div>
+      <div>
+        <PriceChange value={price_change_percentage_1h_in_currency} />
+      </div>
 
-      <div>{price_change_percentage_24h_in_currency.toFixed(2)}</div>
+      <div>
+        <PriceChange value={price_change_percentage_24h_in_currency} />
+      </div>
 
-      <div>{price_change_percentage_7d_in_currency.toFixed(2)}</div>
+      <div>
+        <PriceChange value={price_change_percentage_7d_in_currency} />
+      </div>
 
       <div>7</div>
       <div>8</div>
