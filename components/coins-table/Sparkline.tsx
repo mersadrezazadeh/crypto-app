@@ -10,7 +10,7 @@ import {
   Filler,
   type ScriptableContext,
 } from "chart.js";
-import { getReducedArray } from "@/utils/helpers";
+import { reducedArray } from "@/utils/helpers";
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Filler);
 
@@ -42,7 +42,7 @@ function Sparkline({
   reducedBy,
 }: SparklineProps) {
   const isPositive = priceChange >= 0;
-  const dataSet = getReducedArray(price, reducedBy);
+  const dataSet = reducedArray(price, reducedBy);
 
   function getBackgroundColor(
     context: ScriptableContext<"line">

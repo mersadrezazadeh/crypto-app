@@ -49,7 +49,7 @@ export function numberScale(num: number) {
   }
 }
 
-export function formatePrice(price: number) {
+export function formatPrice(price: number) {
   return parseFloat(price.toFixed(2));
 }
 
@@ -57,7 +57,7 @@ type SimpleArray = number[];
 type TupleArray = [string, number][];
 type GetReducedArrayType = SimpleArray | TupleArray;
 
-export function getReducedArray<T extends GetReducedArrayType>(
+export function reducedArray<T extends GetReducedArrayType>(
   array: T,
   num: number
 ): T {

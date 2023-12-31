@@ -40,6 +40,8 @@ const config: Config = {
         850: "#18212f",
         900: "#111827",
       },
+      green: "#00B1A7",
+      red: "#FE2264",
     },
   },
   plugins: [],

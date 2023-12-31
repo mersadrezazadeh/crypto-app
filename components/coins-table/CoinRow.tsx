@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Sparkline from "./Sparkline";
-import { formatCurrency, formatePrice } from "@/utils/helpers";
+import { formatCurrency, formatPrice } from "@/utils/helpers";
 import PriceChange from "../ui/PriceChange";
 import StatusBar from "../ui/StatusBar";
 
@@ -32,13 +32,13 @@ function CoinRow({ coin }: CoinRowProps) {
     image,
     current_price,
     market_cap,
-    market_cap_rank,
+    market_cap_rank: rank,
     total_volume,
     total_supply,
     circulating_supply,
-    price_change_percentage_1h_in_currency,
-    price_change_percentage_24h_in_currency,
-    price_change_percentage_7d_in_currency,
+    price_change_percentage_1h_in_currency: priceChange1h,
+    price_change_percentage_24h_in_currency: priceChange24h,
+    price_change_percentage_7d_in_currency: priceChange7d,
     sparkline_in_7d: sparkline,
   } = coin;
 
@@ -47,7 +47,7 @@ function CoinRow({ coin }: CoinRowProps) {
       role="row"
       className="grid grid-cols-9 items-center gap-2 border-b border-gray-100 px-3 py-6 last:border-0 dark:border-gray-800 text-gray-900"
     >
-      <div>{market_cap_rank}</div>
+      <div>{rank}</div>
 
       <Link href={`/${id}`} className="flex items-center">
         <Image src={image} alt={name} width={32} height={32} />
@@ -59,15 +59,15 @@ function CoinRow({ coin }: CoinRowProps) {
       <div>$ {formatCurrency(current_price)}</div>
 
       <div>
-        <PriceChange value={price_change_percentage_1h_in_currency} />
+        <PriceChange value={formatPrice(priceChange1h)} />
       </div>
 
       <div>
-        <PriceChange value={price_change_percentage_24h_in_currency} />
+        <PriceChange value={formatPrice(priceChange24h)} />
       </div>
 
       <div>
-        <PriceChange value={price_change_percentage_7d_in_currency} />
+        <PriceChange value={formatPrice(priceChange7d)} />
       </div>
 
       <div>
@@ -95,7 +95,7 @@ function CoinRow({ coin }: CoinRowProps) {
       <div className="h-full">
         <Sparkline
           price={sparkline.price}
-          priceChange={formatePrice(price_change_percentage_7d_in_currency)}
+          priceChange={formatPrice(priceChange7d)}
           reducedBy={6}
           defaultColor={false}
         />

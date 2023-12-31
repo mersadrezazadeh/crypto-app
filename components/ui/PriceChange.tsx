@@ -1,11 +1,11 @@
 function PriceChange({ value }: { value: number }) {
-  const isNegative = value && value < 0;
-
-  const formattedValue = value.toFixed(2);
+  const isPositive = value >= 0;
 
   return (
     <div>
-      <span>{formattedValue}%</span>
+      <span className={`${isPositive ? "text-green" : "text-red"}`}>
+        {value}%
+      </span>
     </div>
   );
 }
