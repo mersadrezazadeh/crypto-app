@@ -50,9 +50,10 @@ function CoinRow({ coin }: CoinRowProps) {
       <div>{market_cap_rank}</div>
 
       <Link href={`/${id}`} className="flex items-center">
-        <Image src={image} alt={`${name} icon`} width={32} height={32} />
-        <span>{name}</span>
-        <span>({symbol})</span>
+        <Image src={image} alt={name} width={32} height={32} />
+        <span>
+          {name} ({symbol})
+        </span>
       </Link>
 
       <div>$ {formatCurrency(current_price)}</div>
