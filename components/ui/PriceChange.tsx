@@ -3,7 +3,7 @@ function PriceChange({ value }: { value: number }) {
 
   return (
     <div>
-      <span className={`${isPositive ? "text-green" : "text-red"}`}>
+      <span className={`${isPositive ? "text-green-200" : "text-red-200"}`}>
         {value}%
       </span>
     </div>
