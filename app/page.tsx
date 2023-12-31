@@ -17,7 +17,7 @@ export default function HomePage({ searchParams }: HomePageProps) {
   return (
     <>
       <Header />
-      <main className="container py-6">
+      <main className="container py-6 px-3">
         <CoinsTable page={+page} per_page={+per_page} start={start} end={end} />
       </main>
     </>

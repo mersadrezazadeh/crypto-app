@@ -45,54 +45,55 @@ function CoinRow({ coin }: CoinRowProps) {
   return (
     <div
       role="row"
-      className="grid grid-cols-9 items-center gap-2 border-b border-gray-100 px-3 py-6 last:border-0 dark:border-gray-800 text-gray-900"
+      className="flex items-center border-b border-gray-100 px-3 py-6 last:border-0 dark:border-gray-800 text-gray-900"
     >
-      <div>{rank}</div>
+      <div className="w-[3%] text-center">{rank}</div>
 
-      <Link href={`/${id}`} className="flex items-center">
-        <Image src={image} alt={name} width={32} height={32} />
-        <span>
-          {name} ({symbol})
-        </span>
+      <div className="w-[5%] flex justify-center">
+        <Image src={image} alt={name} width={30} height={30} />
+      </div>
+
+      <Link href={`/${id}`} className="flex justify-center text-center w-[13%]">
+        {name} ({symbol})
       </Link>
 
-      <div>$ {formatCurrency(current_price)}</div>
+      <div className="w-[8%] text-center">${formatCurrency(current_price)}</div>
 
-      <div>
+      <div className="w-[7%] text-center">
         <PriceChange value={formatPrice(priceChange1h)} />
       </div>
 
-      <div>
+      <div className="w-[7%] text-center">
         <PriceChange value={formatPrice(priceChange24h)} />
       </div>
 
-      <div>
+      <div className="w-[7%] text-center">
         <PriceChange value={formatPrice(priceChange7d)} />
       </div>
 
-      <div>
+      <div className="w-[18%] px-2">
         <StatusBar
           value1={total_volume}
           value2={market_cap}
           baseColor="#9ca3af"
           bgColor="#627eea"
           textColor="#627eea"
-          width="90%"
+          width="100%"
         />
       </div>
 
-      <div>
+      <div className="w-[18%] px-2">
         <StatusBar
           value1={circulating_supply}
           value2={total_supply}
           baseColor="#9ca3af"
           bgColor="#f7931A"
           textColor="#f7931A"
-          width="90%"
+          width="100%"
         />
       </div>
 
-      <div className="h-full">
+      <div className="w-[14%]">
         <Sparkline
           price={sparkline.price}
           priceChange={formatPrice(priceChange7d)}

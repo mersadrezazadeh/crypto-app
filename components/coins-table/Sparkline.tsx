@@ -87,7 +87,7 @@ function Sparkline({
     ],
   };
 
-  return <Line width={150} height={30} options={options} data={data} />;
+  return <Line width="100%" height={40} options={options} data={data} />;
 }
 
 export default Sparkline;

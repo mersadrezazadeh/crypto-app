@@ -22,7 +22,7 @@ function StatusBar({
 }: StatusBarProps) {
   return (
     <>
-      <div className="flex justify-between max-w-[90%]">
+      <div className="flex justify-between">
         <span style={{ color: textColor }}>{formatCurrency(value1)}</span>
 
         <span>{formatCurrency(value2)}</span>
@@ -35,7 +35,7 @@ function StatusBar({
         labelColor="transparent"
         baseBgColor={baseColor}
         bgColor={bgColor}
-        height="5px"
+        height="6px"
         width={width}
       />
     </>

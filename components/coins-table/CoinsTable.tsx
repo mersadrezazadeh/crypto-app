@@ -25,17 +25,18 @@ async function CoinsTable({
     >
       <div
         role="row"
-        className="grid grid-cols-9 items-center gap-2 rounded-t-lg border-b border-gray-100 bg-gray-50 px-3 py-4 font-semibold text-gray-600 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-300"
+        className="flex items-center gap-2 rounded-t-lg border-b border-gray-100 bg-gray-50 px-3 py-4 font-semibold text-gray-600 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-300"
       >
-        <div>#</div>
-        <div>Name</div>
-        <div>Price</div>
-        <div>1h%</div>
-        <div>24h%</div>
-        <div>7d%</div>
-        <div>24h volume/Market Cap</div>
-        <div>Circulating/Total supply</div>
-        <div>Last 7d</div>
+        <div className="text-center w-[3%]">#</div>
+        <div className="w-[4%]"></div>
+        <div className="text-center w-[13%]">Name</div>
+        <div className="text-center w-[7%]">Price</div>
+        <div className="text-center w-[7%]">24h%</div>
+        <div className="text-center w-[7%]">1h%</div>
+        <div className="text-center w-[7%]">7d%</div>
+        <div className="text-center w-[18]">24h volume/Market Cap</div>
+        <div className="text-center w-[18%]">Circulating/Total supply</div>
+        <div className="text-center w-[14%]">Last 7d</div>
       </div>
 
       {coins.length === 0 ? (
