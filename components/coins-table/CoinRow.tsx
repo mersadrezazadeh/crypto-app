@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import Sparkline from "./Sparkline";
 
 export type Coin = {
   id: string;
@@ -61,7 +62,10 @@ function CoinRow({ coin }: CoinRowProps) {
 
       <div>7</div>
       <div>8</div>
-      <div>9</div>
+
+      <div className="h-full">
+        <Sparkline price={sparkline_in_7d.price} />
+      </div>
     </div>
   );
 }

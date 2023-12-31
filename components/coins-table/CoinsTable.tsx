@@ -16,6 +16,8 @@ async function CoinsTable({
   const allCoins = await getAllCoins();
   const coins = await getTableCoins(page, per_page);
 
+  if (!allCoins || !coins) return <p>Loading...</p>;
+
   return (
     <div
       role="table"
