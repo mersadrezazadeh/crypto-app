@@ -7,34 +7,86 @@ import {
   LineElement,
   LinearScale,
   PointElement,
+  Filler,
+  type ScriptableContext,
 } from "chart.js";
+import { getReducedArray } from "@/utils/helpers";
 
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement);
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Filler);
 
 const options = {
+  fill: true,
   responsive: true,
-  plugins: {
-    legend: { display: false },
-  },
+  maintainAspectRatio: false,
   scales: {
-    x: { display: false },
-    y: { display: false },
+    x: {
+      display: false,
+    },
+    y: {
+      display: false,
+    },
   },
 };
 
-function Sparkline({ price }: { price: number[] }) {
+type SparklineProps = {
+  price: number[];
+  priceChange: number;
+  defaultColor: boolean;
+  reducedBy: number;
+};
+
+function Sparkline({
+  price,
+  priceChange,
+  defaultColor,
+  reducedBy,
+}: SparklineProps) {
+  const isPositive = priceChange >= 0;
+  const dataSet = getReducedArray(price, reducedBy);
+
+  function getBackgroundColor(
+    context: ScriptableContext<"line">
+  ): CanvasGradient {
+    const ctx: CanvasRenderingContext2D = context.chart.ctx;
+    const height: number = ctx.canvas.clientHeight;
+    const gradient: CanvasGradient = ctx.createLinearGradient(0, 0, 0, height);
+
+    if (defaultColor) {
+      gradient.addColorStop(0, "rgba(116, 116, 250, 0.5)");
+      gradient.addColorStop(0.7, "rgba(116, 116, 250, 0.1)");
+    } else if (isPositive) {
+      gradient.addColorStop(0, "rgba(0, 245, 228, 0.5)");
+      gradient.addColorStop(0.7, "rgba(0, 245, 228, 0.1)");
+    } else {
+      gradient.addColorStop(0, "rgba(255, 0, 97, 0.5)");
+      gradient.addColorStop(0.7, "rgba(255, 0, 97, 0.1)");
+    }
+
+    gradient.addColorStop(1, "transparent");
+    return gradient;
+  }
+
+  function getBorderColor() {
+    if (defaultColor) return "#7878FA";
+    else if (isPositive) return "#00f5e4";
+    else return "#ff0061";
+  }
+
   const data = {
-    labels: price,
+    labels: Array.from(Array(dataSet.length).keys()),
     datasets: [
       {
-        data: price,
-        borderColor: "hsla(284, 93%, 73%, 0.5)",
-        pointRadius: 0,
-        tension: 0.4,
+        data: dataSet,
+        backgroundColor: getBackgroundColor,
+        borderColor: getBorderColor,
         borderWidth: 2,
+        tension: 0.3,
+        pointRadius: 0,
+        fill: true,
       },
     ],
   };
+
   return <Line width={150} height={30} options={options} data={data} />;
 }
 

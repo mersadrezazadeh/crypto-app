@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Sparkline from "./Sparkline";
-import { formatCurrency } from "@/utils/helpers";
+import { formatCurrency, formatePrice } from "@/utils/helpers";
 import PriceChange from "../ui/PriceChange";
 import StatusBar from "../ui/StatusBar";
 
@@ -92,7 +92,12 @@ function CoinRow({ coin }: CoinRowProps) {
       </div>
 
       <div className="h-full">
-        <Sparkline price={sparkline.price} />
+        <Sparkline
+          price={sparkline.price}
+          priceChange={formatePrice(price_change_percentage_7d_in_currency)}
+          reducedBy={6}
+          defaultColor={false}
+        />
       </div>
     </div>
   );
