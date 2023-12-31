@@ -13,6 +13,9 @@ const config: Config = {
         screen: "100dvh",
       },
     },
+    fontFamily: {
+      sans: ["var(--font-inter)"],
+    },
     colors: {
       transparent: "transparent",
       current: "currentColor",
