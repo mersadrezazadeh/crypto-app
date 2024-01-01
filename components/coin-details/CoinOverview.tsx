@@ -30,7 +30,7 @@ function CoinOverview({
   atlDate,
 }: CoinOverviewProps) {
   return (
-    <div className="bg-gray-0 dark:bg-gray-850 rounded-md p-4">
+    <section className="bg-gray-0 dark:bg-gray-850 rounded-md p-4">
       <div className="flex gap-4">
         <Image src={image} alt={name} width={40} height={40} />
         <div>
@@ -56,12 +56,12 @@ function CoinOverview({
         <p>{formatCurrency(ath[currency], currency)}</p>
 
         <div>
-          <div>All Time Low:</div>
+          <h2>All Time Low:</h2>
           <p>{formatDate(atlDate[currency])}</p>
         </div>
         <p>{formatCurrency(atl[currency], currency)}</p>
       </div>
-    </div>
+    </section>
   );
 }
 

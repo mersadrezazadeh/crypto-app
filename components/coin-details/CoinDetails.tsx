@@ -95,7 +95,7 @@ async function CoinDetails({ selectedCoin, currency }: CoinDetailsProps) {
         atl={atl}
         atlDate={atlDate}
       />
-      <CoinChart />
+      <CoinChart sparklinePrice={sparklinePrice} />
       <CoinMarket />
       <CoinDescription />
     </>
