@@ -30,16 +30,16 @@ function CoinRow({ coin, currency }: CoinRowProps) {
     symbol,
     name,
     image,
-    current_price,
-    market_cap,
-    market_cap_rank: rank,
-    total_volume,
-    total_supply,
-    circulating_supply,
+    current_price: currentPrice,
+    market_cap: marketCap,
+    market_cap_rank: marketCapRank,
+    total_volume: totalVolume,
+    total_supply: totalSupply,
+    circulating_supply: circulatingSupply,
     price_change_percentage_1h_in_currency: priceChange1h,
     price_change_percentage_24h_in_currency: priceChange24h,
     price_change_percentage_7d_in_currency: priceChange7d,
-    sparkline_in_7d: sparkline,
+    sparkline_in_7d: { price: sparklinePrice },
   } = coin;
 
   return (
@@ -47,7 +47,7 @@ function CoinRow({ coin, currency }: CoinRowProps) {
       role="row"
       className="flex items-center border-b border-gray-100 px-3 py-6 last:border-0 dark:border-gray-800 text-gray-900"
     >
-      <div className="w-[3%] text-center">{rank}</div>
+      <div className="w-[3%] text-center">{marketCapRank}</div>
 
       <div className="w-[5%] flex justify-center">
         <Image src={image} alt={name} width={30} height={30} />
@@ -60,7 +60,7 @@ function CoinRow({ coin, currency }: CoinRowProps) {
         {currency === "eur" && "€"}
         {currency === "gbp" && "£"}
         {currency === "jpy" && "¥"}
-        {formatCurrency(current_price)}
+        {formatCurrency(currentPrice)}
       </div>
 
       <div className="w-[7%] text-center">
@@ -77,8 +77,8 @@ function CoinRow({ coin, currency }: CoinRowProps) {
 
       <div className="w-[18%] px-2">
         <StatusBar
-          value1={total_volume}
-          value2={market_cap}
+          value1={totalVolume}
+          value2={marketCap}
           baseColor="#9ca3af"
           bgColor="#627eea"
           textColor="#627eea"
@@ -88,8 +88,8 @@ function CoinRow({ coin, currency }: CoinRowProps) {
 
       <div className="w-[18%] px-2">
         <StatusBar
-          value1={circulating_supply}
-          value2={total_supply}
+          value1={circulatingSupply}
+          value2={totalSupply}
           baseColor="#9ca3af"
           bgColor="#f7931A"
           textColor="#f7931A"
@@ -99,7 +99,7 @@ function CoinRow({ coin, currency }: CoinRowProps) {
 
       <div className="w-[14%]">
         <Sparkline
-          price={sparkline.price}
+          price={sparklinePrice}
           priceChange={formatPrice(priceChange7d)}
           reducedBy={6}
           defaultColor={false}
