@@ -8,7 +8,7 @@ function CoinChart({ sparklinePrice }: CoinChartProps) {
   return (
     <section className="bg-gray-0 flex flex-col dark:bg-gray-850 rounded-md p-4">
       <h2>Last 7 days</h2>
-      <div>
+      <div className="size-full">
         <Sparkline
           price={sparklinePrice}
           priceChange={1}
