@@ -19,7 +19,7 @@ export default function HomePage({ searchParams }: HomePageProps) {
   return (
     <>
       <Header />
-      <main className="container py-6 px-3">
+      <main className="container py-6 px-3 flex flex-col gap-6">
         <CoinsSliderLayout currency={currency.toString()} />
 
         <CoinsTable
