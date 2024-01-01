@@ -1,9 +1,9 @@
+import { formatCurrency, formatLargeNumber } from "@/utils/helpers";
 import Image from "next/image";
-import Sparkline from "./Sparkline";
-import { formatCurrency, formatPrice } from "@/utils/helpers";
+import CoinLink from "./CoinLink";
 import PriceChange from "../ui/PriceChange";
 import StatusBar from "../ui/StatusBar";
-import CoinLink from "./CoinLink";
+import Sparkline from "./Sparkline";
 
 export type Coin = {
   id: string;
@@ -56,23 +56,19 @@ function CoinRow({ coin, currency }: CoinRowProps) {
       <CoinLink id={id} name={name} symbol={symbol} />
 
       <div className="w-[8%] text-center">
-        {currency === "usd" && "$"}
-        {currency === "eur" && "€"}
-        {currency === "gbp" && "£"}
-        {currency === "jpy" && "¥"}
-        {formatCurrency(currentPrice)}
+        {formatCurrency(currentPrice, currency)}
       </div>
 
       <div className="w-[7%] text-center">
-        <PriceChange value={formatPrice(priceChange1h)} />
+        <PriceChange value={priceChange1h} />
       </div>
 
       <div className="w-[7%] text-center">
-        <PriceChange value={formatPrice(priceChange24h)} />
+        <PriceChange value={priceChange24h} />
       </div>
 
       <div className="w-[7%] text-center">
-        <PriceChange value={formatPrice(priceChange7d)} />
+        <PriceChange value={priceChange7d} />
       </div>
 
       <div className="w-[18%] px-2">
@@ -100,7 +96,7 @@ function CoinRow({ coin, currency }: CoinRowProps) {
       <div className="w-[14%]">
         <Sparkline
           price={sparklinePrice}
-          priceChange={formatPrice(priceChange7d)}
+          priceChange={priceChange7d}
           reducedBy={6}
           defaultColor={false}
         />

@@ -1,6 +1,6 @@
 "use client";
 
-import { formatCurrency } from "@/utils/helpers";
+import { formatLargeNumber } from "@/utils/helpers";
 import ProgressBar from "@ramonak/react-progress-bar";
 
 type StatusBarProps = {
@@ -23,9 +23,9 @@ function StatusBar({
   return (
     <>
       <div className="flex justify-between">
-        <span style={{ color: textColor }}>{formatCurrency(value1)}</span>
+        <span style={{ color: textColor }}>{formatLargeNumber(value1)}</span>
 
-        <span>{formatCurrency(value2)}</span>
+        <span>{formatLargeNumber(value2)}</span>
       </div>
 
       <ProgressBar
