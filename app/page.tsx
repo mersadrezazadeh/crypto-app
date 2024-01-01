@@ -1,5 +1,6 @@
 import CoinsTable from "@/components/coins-table/CoinsTable";
 import Header from "../components/header/Header";
+import CoinsSliderLayout from "@/components/coins-slider/CoinsSliderLayout";
 
 type HomePageProps = {
   searchParams: {
@@ -19,6 +20,8 @@ export default function HomePage({ searchParams }: HomePageProps) {
     <>
       <Header />
       <main className="container py-6 px-3">
+        <CoinsSliderLayout currency={currency.toString()} />
+
         <CoinsTable
           currency={currency.toString()}
           page={+page}
