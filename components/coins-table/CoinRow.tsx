@@ -1,9 +1,9 @@
 import Image from "next/image";
-import Link from "next/link";
 import Sparkline from "./Sparkline";
 import { formatCurrency, formatPrice } from "@/utils/helpers";
 import PriceChange from "../ui/PriceChange";
 import StatusBar from "../ui/StatusBar";
+import CoinLink from "./CoinLink";
 
 export type Coin = {
   id: string;
@@ -53,11 +53,11 @@ function CoinRow({ coin }: CoinRowProps) {
         <Image src={image} alt={name} width={30} height={30} />
       </div>
 
-      <Link href={`/${id}`} className="flex justify-center text-center w-[13%]">
-        {name} ({symbol})
-      </Link>
+      <CoinLink id={id} name={name} symbol={symbol} />
 
-      <div className="w-[8%] text-center">${formatCurrency(current_price)}</div>
+      <div className="w-[8%] text-center">
+        ${formatCurrency(current_price)}C
+      </div>
 
       <div className="w-[7%] text-center">
         <PriceChange value={formatPrice(priceChange1h)} />

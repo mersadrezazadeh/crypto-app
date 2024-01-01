@@ -6,9 +6,10 @@ import CoinChart from "./CoinChart";
 
 type CoinDetailsProps = {
   selectedCoin: string;
+  currency: string | string[];
 };
 
-async function CoinDetails({ selectedCoin }: CoinDetailsProps) {
+async function CoinDetails({ selectedCoin, currency }: CoinDetailsProps) {
   const coin = await getCoinDetails(selectedCoin);
 
   const {
@@ -17,7 +18,7 @@ async function CoinDetails({ selectedCoin }: CoinDetailsProps) {
     image: { small: image },
     links: { homepage },
     market_data: {
-      current_price,
+      current_price: currentPrice,
       price_change_percentage_24h: priceChange24h,
       ath,
       ath_date: athDate,
@@ -35,7 +36,13 @@ async function CoinDetails({ selectedCoin }: CoinDetailsProps) {
 
   return (
     <>
-      <CoinOverview />
+      <CoinOverview
+        image={image}
+        name={name}
+        symbol={symbol}
+        homepage={homepage.at(0)}
+        currentPrice={currentPrice}
+      />
       <CoinChart />
       <CoinMarket />
       <CoinDescription />
