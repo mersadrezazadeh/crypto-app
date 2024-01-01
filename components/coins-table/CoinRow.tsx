@@ -22,9 +22,9 @@ export type Coin = {
   sparkline_in_7d: { price: number[] };
 };
 
-type CoinRowProps = { coin: Coin };
+type CoinRowProps = { coin: Coin; currency: string };
 
-function CoinRow({ coin }: CoinRowProps) {
+function CoinRow({ coin, currency }: CoinRowProps) {
   const {
     id,
     symbol,
@@ -56,7 +56,11 @@ function CoinRow({ coin }: CoinRowProps) {
       <CoinLink id={id} name={name} symbol={symbol} />
 
       <div className="w-[8%] text-center">
-        ${formatCurrency(current_price)}C
+        {currency === "usd" && "$"}
+        {currency === "eur" && "€"}
+        {currency === "gbp" && "£"}
+        {currency === "jpy" && "¥"}
+        {formatCurrency(current_price)}
       </div>
 
       <div className="w-[7%] text-center">

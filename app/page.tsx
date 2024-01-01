@@ -8,6 +8,7 @@ type HomePageProps = {
 };
 
 export default function HomePage({ searchParams }: HomePageProps) {
+  const currency = searchParams["currency"] ?? "usd";
   const page = searchParams["page"] ?? "1";
   const per_page = searchParams["per_page"] ?? "100";
 
@@ -18,7 +19,13 @@ export default function HomePage({ searchParams }: HomePageProps) {
     <>
       <Header />
       <main className="container py-6 px-3">
-        <CoinsTable page={+page} per_page={+per_page} start={start} end={end} />
+        <CoinsTable
+          currency={currency.toString()}
+          page={+page}
+          per_page={+per_page}
+          start={start}
+          end={end}
+        />
       </main>
     </>
   );

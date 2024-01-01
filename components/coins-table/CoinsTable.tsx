@@ -2,19 +2,23 @@ import { getAllCoins, getTableCoins } from "@/services/apiCoins";
 import CoinRow, { type Coin } from "./CoinRow";
 import PaginationControl from "./PaginationControl";
 
-async function CoinsTable({
-  page,
-  per_page,
-  start,
-  end,
-}: {
+type CoinsTableProps = {
+  currency: string;
   page: number;
   per_page: number;
   start: number;
   end: number;
-}) {
+};
+
+async function CoinsTable({
+  currency,
+  page,
+  per_page,
+  start,
+  end,
+}: CoinsTableProps) {
   const allCoins = await getAllCoins();
-  const coins = await getTableCoins(page, per_page);
+  const coins = await getTableCoins(currency, page, per_page);
 
   if (!allCoins || !coins) return <p>Loading...</p>;
 
@@ -44,7 +48,7 @@ async function CoinsTable({
       ) : (
         <section className="my-1">
           {coins.map((coin: Coin) => (
-            <CoinRow coin={coin} key={coin.id} />
+            <CoinRow coin={coin} currency={currency} key={coin.id} />
           ))}
         </section>
       )}

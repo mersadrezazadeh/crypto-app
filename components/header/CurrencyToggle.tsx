@@ -16,6 +16,7 @@ function CurrencyToggle() {
       <option value="usd">USD</option>
       <option value="eur">EUR</option>
       <option value="gbp">GBP</option>
+      <option value="jpy">JPY</option>
     </select>
   );
 }
