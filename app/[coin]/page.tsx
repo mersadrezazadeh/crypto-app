@@ -17,7 +17,10 @@ function CoinPage({ params, searchParams }: CoinPageProps) {
     <>
       <Header />
       <main className="container py-6 px-3 grid grid-cols-1 md:grid-cols-2">
-        <CoinDetails selectedCoin={params.coin} currency={currency} />
+        <CoinDetails
+          selectedCoin={params.coin}
+          currency={currency.toString()}
+        />
       </main>
     </>
   );

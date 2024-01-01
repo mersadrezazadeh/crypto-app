@@ -4,9 +4,55 @@ import CoinMarket from "./CoinMarket";
 import CoinDescription from "./CoinDescription";
 import CoinChart from "./CoinChart";
 
+type Coin = {
+  name: string;
+  symbol: string;
+  image: {
+    small: string;
+  };
+  links: {
+    homepage: string[];
+  };
+  market_data: {
+    current_price: {
+      usd: number;
+      eur: number;
+      gbp: number;
+      jpy: number;
+    };
+    price_change_percentage_24h: number;
+    sparkline_7d: {
+      price: number[];
+    };
+    market_cap: {
+      usd: number;
+      eur: number;
+      gbp: number;
+      jpy: number;
+    };
+    fully_diluted_valuation: {
+      usd: number;
+      eur: number;
+      gbp: number;
+      jpy: number;
+    };
+    total_volume: {
+      usd: number;
+      eur: number;
+      gbp: number;
+      jpy: number;
+    };
+    circulating_supply: number;
+    max_supply: number;
+  };
+  description: {
+    en: string;
+  };
+};
+
 type CoinDetailsProps = {
   selectedCoin: string;
-  currency: string | string[];
+  currency: string;
 };
 
 async function CoinDetails({ selectedCoin, currency }: CoinDetailsProps) {
@@ -37,11 +83,17 @@ async function CoinDetails({ selectedCoin, currency }: CoinDetailsProps) {
   return (
     <>
       <CoinOverview
+        currency={currency}
         image={image}
         name={name}
         symbol={symbol}
-        homepage={homepage.at(0)}
+        homepage={homepage.at(0)?.toString() || ""}
         currentPrice={currentPrice}
+        priceChange24h={priceChange24h}
+        ath={ath}
+        athDate={athDate}
+        atl={atl}
+        atlDate={atlDate}
       />
       <CoinChart />
       <CoinMarket />
