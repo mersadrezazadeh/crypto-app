@@ -104,7 +104,7 @@ async function CoinDetails({ selectedCoin, currency }: CoinDetailsProps) {
         circulatingSupply={circulatingSupply}
         maxSupply={maxSupply}
       />
-      <CoinDescription />
+      <CoinDescription description={description} />
     </>
   );
 }
