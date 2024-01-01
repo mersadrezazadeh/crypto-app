@@ -96,7 +96,14 @@ async function CoinDetails({ selectedCoin, currency }: CoinDetailsProps) {
         atlDate={atlDate}
       />
       <CoinChart sparklinePrice={sparklinePrice} />
-      <CoinMarket />
+      <CoinMarket
+        currency={currency}
+        marketCap={marketCap}
+        fullyDilutedValuation={fullyDilutedValuation}
+        totalVolume={totalVolume}
+        circulatingSupply={circulatingSupply}
+        maxSupply={maxSupply}
+      />
       <CoinDescription />
     </>
   );
