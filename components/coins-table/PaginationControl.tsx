@@ -23,6 +23,7 @@ function PaginationControl({
   return (
     <div className="text-gray-900 flex gap-8">
       <Button
+        size="small"
         disabled={!hasPrevPage}
         onClick={() => router.push(`/?page=${+page - 1}&per_page=${per_page}`)}
       >
@@ -34,6 +35,7 @@ function PaginationControl({
       </span>
 
       <Button
+        size="small"
         disabled={!hasNextPage}
         onClick={() => router.push(`/?page=${+page + 1}&Per_page=${per_page}`)}
       >
