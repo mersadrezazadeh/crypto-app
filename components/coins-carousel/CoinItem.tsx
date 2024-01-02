@@ -30,38 +30,10 @@ function CoinItem({ currency, coin }: CoinItemProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  const selectedCoin1 = searchParams.get("selected_coin_1") ?? "bitcoin";
-  const selectedCoin2 = searchParams.get("selected_coin_2");
-
-  function selectCoin1() {
-    if (selectedCoin1 !== id)
-      router.push(
-        `?selected_coin_1=${id}&selected_coin_2=${selectedCoin2}&currency=${currency}`,
-      );
-    if (selectedCoin1 === id)
-      router.push(
-        `?selected_coin_1=${null}&selected_coin_2=${selectedCoin2}&currency=${currency}`,
-      );
-  }
-
-  function selectCoin2() {
-    if (selectedCoin2 !== id)
-      router.push(
-        `?selected_coin_1=${selectedCoin1}&selected_coin_2=${id}&currency=${currency}`,
-      );
-    if (selectedCoin2 === id)
-      router.push(
-        `?selected_coin_1=${selectedCoin1}&selected_coin_2=${null}&currency=${currency}`,
-      );
-  }
+  const selectedCoin = searchParams.get("selected_coin") ?? "bitcoin";
 
   function handleSelectCoin() {
-    if (selectedCoin1 !== id) {
-      selectCoin1();
-    }
-    if (selectedCoin1 === id) {
-      selectCoin2();
-    }
+    router.push(`/?selected_coin=${id}&currency=${currency}`);
   }
 
   return (

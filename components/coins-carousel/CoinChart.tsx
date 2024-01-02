@@ -45,27 +45,15 @@ const reduceBy = {
   max: 92,
 };
 
-type Data = {
-  prices: [string, number][];
-};
-
 type CoinChartProps = {
-  data1: Data;
-  data2: Data;
+  data: { prices: [string, number][] };
   time: string;
 };
 
-function CoinChart({
-  data1: { prices: prices1 },
-  data2: { prices: prices2 },
+function CoinChart({ data: { prices }, time }: CoinChartProps) {
+  const dataSet = prices.map((price) => price[1]);
 
-  time,
-}: CoinChartProps) {
-  const dataSet1 = prices1.map((price) => price[1]);
-  const dataSet2 = prices2.map((price) => price[1]);
-  // const labels = prices.map((price) => price[0]);
-
-  function getBackgroundColor1(
+  function getBackgroundColor(
     context: ScriptableContext<"line">,
   ): CanvasGradient {
     const ctx: CanvasRenderingContext2D = context.chart.ctx;
@@ -78,35 +66,13 @@ function CoinChart({
     return gradient;
   }
 
-  function getBackgroundColor2(
-    context: ScriptableContext<"line">,
-  ): CanvasGradient {
-    const ctx: CanvasRenderingContext2D = context.chart.ctx;
-    const height: number = ctx.canvas.clientHeight;
-    const gradient: CanvasGradient = ctx.createLinearGradient(0, 0, 0, height);
-
-    gradient.addColorStop(0, "rgba(216, 120, 250, 0.5)");
-    gradient.addColorStop(0.7, "rgba(216, 120, 250, 0.1)");
-
-    return gradient;
-  }
-
   const data = {
-    labels: Array.from(Array(dataSet1.length).keys()),
+    labels: Array.from(Array(dataSet.length).keys()),
     datasets: [
       {
-        data: dataSet1,
-        backgroundColor: getBackgroundColor1,
+        data: dataSet,
+        backgroundColor: getBackgroundColor,
         borderColor: "#424286",
-        borderWidth: 2,
-        tension: 0.3,
-        pointRadius: 0,
-        fill: true,
-      },
-      {
-        data: dataSet2,
-        backgroundColor: getBackgroundColor2,
-        borderColor: "#d878fa",
         borderWidth: 2,
         tension: 0.3,
         pointRadius: 0,

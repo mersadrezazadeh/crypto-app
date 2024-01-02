@@ -11,8 +11,7 @@ type HomePageProps = {
 export default function HomePage({ searchParams }: HomePageProps) {
   const currency = searchParams["currency"] ?? "usd";
 
-  const selected_coin_1 = searchParams["selected_coin_1"] ?? "bitcoin";
-  const selected_coin_2 = searchParams["selected_coin_2"] ?? "";
+  const selected_coin = searchParams["selected_coin"] ?? "bitcoin";
 
   const time = searchParams["time"] ?? "1";
 
@@ -28,8 +27,7 @@ export default function HomePage({ searchParams }: HomePageProps) {
       <main className="container flex flex-col gap-6 px-3 py-6">
         <CoinsCarouselLayout
           currency={currency.toString()}
-          selectedCoin1={selected_coin_1.toString()}
-          selectedCoin2={selected_coin_2.toString()}
+          selectedCoin={selected_coin.toString()}
         />
 
         <CoinsTable
