@@ -45,12 +45,12 @@ const reduceBy = {
   max: 92,
 };
 
-type CoinChartProps = {
+type CoinStatsProps = {
   data: { prices: [string, number][] };
   time: string;
 };
 
-function CoinChart({ data: { prices }, time }: CoinChartProps) {
+function CoinStats({ data: { prices }, time }: CoinStatsProps) {
   const dataSet = prices.map((price) => price[1]);
 
   function getBackgroundColor(
@@ -72,7 +72,7 @@ function CoinChart({ data: { prices }, time }: CoinChartProps) {
       {
         data: dataSet,
         backgroundColor: getBackgroundColor,
-        borderColor: "#424286",
+        borderColor: "#7878FA",
         borderWidth: 2,
         tension: 0.3,
         pointRadius: 0,
@@ -83,14 +83,20 @@ function CoinChart({ data: { prices }, time }: CoinChartProps) {
 
   return (
     <div className="grid h-64 grid-cols-2 gap-4">
-      <div>
+      <div className="rounded-lg bg-gray-0 p-2">
         <Line data={data} options={options} />
       </div>
-      <div>
+      <div className="rounded-lg bg-gray-0 p-2">
         <Bar
           data={{
             labels: Array.from(Array(dataSet.length).keys()),
-            datasets: [{ data: dataSet }],
+            datasets: [
+              {
+                backgroundColor: "#7878FA",
+                barThickness: 5,
+                data: dataSet,
+              },
+            ],
           }}
           options={options}
         />
@@ -99,4 +105,4 @@ function CoinChart({ data: { prices }, time }: CoinChartProps) {
   );
 }
 
-export default CoinChart;
+export default CoinStats;

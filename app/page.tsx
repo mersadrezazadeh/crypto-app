@@ -1,5 +1,5 @@
 import Header from "../components/header/Header";
-import CoinsCarouselLayout from "@/components/coins-carousel/CoinsCarouselLayout";
+import CoinStatsLayout from "@/components/coin-stats/CoinStatsLayout";
 import CoinsTable from "@/components/coins-table/CoinsTable";
 
 type HomePageProps = {
@@ -25,7 +25,7 @@ export default function HomePage({ searchParams }: HomePageProps) {
     <>
       <Header />
       <main className="container flex flex-col gap-6 px-3 py-6">
-        <CoinsCarouselLayout
+        <CoinStatsLayout
           currency={currency.toString()}
           selectedCoin={selected_coin.toString()}
         />

@@ -1,20 +1,20 @@
 import { getCoinChart, getTableCoins } from "@/services/apiCoins";
 import Carousel from "./Carousel";
-import CoinChart from "./CoinChart";
+import CoinStats from "./CoinStats";
 
-type CoinsCarouselLayoutProps = {
+type CoinStatsLayoutProps = {
   currency: string;
   selectedCoin: string;
 };
 
 const NUM_COINS = 50;
 
-async function CoinsCarouselLayout({
+async function CoinStatsLayout({
   currency,
   selectedCoin,
-}: CoinsCarouselLayoutProps) {
+}: CoinStatsLayoutProps) {
   const coins = await getTableCoins(currency, 1, NUM_COINS);
-  const chartData = await getCoinChart(
+  const coinData = await getCoinChart(
     selectedCoin,
     currency,
     "1703602203",
@@ -24,9 +24,9 @@ async function CoinsCarouselLayout({
   return (
     <>
       <Carousel coins={coins} currency={currency} />
-      <CoinChart data={chartData} time="1" />
+      <CoinStats data={coinData} time="1" />
     </>
   );
 }
 
-export default CoinsCarouselLayout;
+export default CoinStatsLayout;
