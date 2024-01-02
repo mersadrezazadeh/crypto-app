@@ -38,7 +38,7 @@ export async function getCoinStats(
   to: string,
 ) {
   const response = await fetch(
-    `https://api.coingecko.com/api/v3/coins/${id}/market_chart/range?vs_currency=${currency}&from=${from}&to=${to}`,
+    `${URL}/${id}/market_chart/range?vs_currency=${currency}&from=${from}&to=${to}&x_cg_demo_api_key=${API_KEY}`,
     { next: { revalidate: 300 } },
   );
 
