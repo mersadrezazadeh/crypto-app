@@ -45,6 +45,7 @@ const config: Config = {
       red: { 200: "#fe2264" },
       orange: { 200: "#f7931A" },
       blue: { 200: "#627eea" },
+      pink: { 200: "#D878FA" },
     },
   },
   plugins: [],

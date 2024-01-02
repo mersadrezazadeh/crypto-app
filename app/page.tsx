@@ -10,10 +10,14 @@ type HomePageProps = {
 
 export default function HomePage({ searchParams }: HomePageProps) {
   const currency = searchParams["currency"] ?? "usd";
-  const page = searchParams["page"] ?? "1";
-  const per_page = searchParams["per_page"] ?? "100";
+
   const selected_coin_1 = searchParams["selected_coin_1"] ?? "bitcoin";
   const selected_coin_2 = searchParams["selected_coin_2"] ?? "";
+
+  const time = searchParams["time"] ?? "1";
+
+  const page = searchParams["page"] ?? "1";
+  const per_page = searchParams["per_page"] ?? "100";
 
   const start = (+page - 1) * +per_page;
   const end = start + +per_page;
