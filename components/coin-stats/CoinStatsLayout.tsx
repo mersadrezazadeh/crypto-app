@@ -1,4 +1,4 @@
-import { getCoinChart, getTableCoins } from "@/services/apiCoins";
+import { getCoinStats, getTableCoins } from "@/services/apiCoins";
 import Carousel from "./Carousel";
 import CoinStats from "./CoinStats";
 
@@ -14,7 +14,7 @@ async function CoinStatsLayout({
   selectedCoin,
 }: CoinStatsLayoutProps) {
   const coins = await getTableCoins(currency, 1, NUM_COINS);
-  const coinData = await getCoinChart(
+  const coinData = await getCoinStats(
     selectedCoin,
     currency,
     "1703602203",

@@ -31,7 +31,7 @@ export async function getCoinDetails(id: string) {
   return response.json();
 }
 
-export async function getCoinChart(
+export async function getCoinStats(
   id: string,
   currency: string,
   from: string,
