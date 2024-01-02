@@ -10,7 +10,7 @@ import {
   PointElement,
   type ScriptableContext,
 } from "chart.js";
-import { Line } from "react-chartjs-2";
+import { Bar, Line } from "react-chartjs-2";
 
 ChartJS.register(
   CategoryScale,
@@ -82,8 +82,19 @@ function CoinChart({ data: { prices }, time }: CoinChartProps) {
   };
 
   return (
-    <div>
-      <Line data={data} options={options} />
+    <div className="grid h-64 grid-cols-2 gap-4">
+      <div>
+        <Line data={data} options={options} />
+      </div>
+      <div>
+        <Bar
+          data={{
+            labels: Array.from(Array(dataSet.length).keys()),
+            datasets: [{ data: dataSet }],
+          }}
+          options={options}
+        />
+      </div>
     </div>
   );
 }
