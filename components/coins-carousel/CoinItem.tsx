@@ -1,6 +1,7 @@
 import Image from "next/image";
 import PriceChange from "../ui/PriceChange";
 import { formatCurrency } from "@/utils/helpers";
+import { motion } from "framer-motion";
 
 type Coin = {
   name: string;
@@ -25,7 +26,7 @@ function CoinItem({ currency, coin }: CoinItemProps) {
   } = coin;
 
   return (
-    <div className="p-4 rounded-lg flex items-center text-sm min-w-[250px] hover:cursor-pointer bg-gray-0">
+    <motion.div className="p-4 rounded-lg flex items-center text-sm min-w-[250px] bg-gray-0">
       <div className="pr-3">
         <Image src={image} alt={name} width={40} height={40} />
       </div>
@@ -42,7 +43,7 @@ function CoinItem({ currency, coin }: CoinItemProps) {
           <PriceChange value={priceChange24h} />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
