@@ -12,6 +12,8 @@ export default function HomePage({ searchParams }: HomePageProps) {
   const currency = searchParams["currency"] ?? "usd";
   const page = searchParams["page"] ?? "1";
   const per_page = searchParams["per_page"] ?? "100";
+  const selected_coin_1 = searchParams["selected_coin_1"] ?? "bitcoin";
+  const selected_coin_2 = searchParams["selected_coin_2"] ?? "";
 
   const start = (+page - 1) * +per_page;
   const end = start + +per_page;
@@ -19,7 +21,7 @@ export default function HomePage({ searchParams }: HomePageProps) {
   return (
     <>
       <Header />
-      <main className="container py-6 px-3 flex flex-col gap-6">
+      <main className="container flex flex-col gap-6 px-3 py-6">
         <CoinsCarouselLayout currency={currency.toString()} />
 
         <CoinsTable
