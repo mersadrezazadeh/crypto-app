@@ -1,5 +1,5 @@
 import CurrencyToggle from "./CurrencyToggle";
-import DarkModeToggle from "./DarkModeToggle";
+import ThemeSwitcher from "./ThemeSwitcher";
 import Logo from "./Logo";
 import MainNav from "./MainNav";
 import SearchBar from "./SearchBar";
@@ -12,7 +12,7 @@ function Header() {
       <MainNav />
       <SearchBar />
       <CurrencyToggle />
-      <DarkModeToggle />
+      <ThemeSwitcher />
       <User />
     </header>
   );
