@@ -29,8 +29,8 @@ function Carousel({ currency, coins }: CarouselProps) {
   }, [ref, width, setWidth]);
 
   return (
-    <div className="relative before:absolute before:right-0 before:top-0 before:bottom-0 before:w-5 before:z-10 before:bg-gradient-to-r before:from-transparent before:via-gray-0/30 before:to-gray-100 after:absolute after:top-0 after:bottom-0 after:left-0 after:bg-gradient-to-l after:from-transparent after:via-gray-0/30 after:to-gray-100 after:z-10 after:w-5">
-      <motion.div ref={ref} className="overflow-hidden cursor-grab">
+    <div className="relative before:absolute before:bottom-0 before:right-0 before:top-0 before:z-10 before:w-5 before:bg-gradient-to-r before:from-transparent before:via-gray-0/30 before:to-gray-100 after:absolute after:bottom-0 after:left-0 after:top-0 after:z-10 after:w-5 after:bg-gradient-to-l after:from-transparent after:via-gray-0/30 after:to-gray-100">
+      <motion.div ref={ref} className="cursor-grab overflow-hidden">
         <motion.div
           drag="x"
           whileTap={{ cursor: "grabbing" }}
