@@ -26,7 +26,7 @@ function CoinItem({ currency, coin }: CoinItemProps) {
   } = coin;
 
   return (
-    <motion.div className="p-4 rounded-lg flex items-center text-sm min-w-[250px] bg-gray-0">
+    <motion.div className="flex min-w-64 items-center rounded-lg bg-gray-0 px-2 py-4 text-sm">
       <div className="pr-3">
         <Image src={image} alt={name} width={40} height={40} />
       </div>
@@ -35,7 +35,7 @@ function CoinItem({ currency, coin }: CoinItemProps) {
         <h3 className="text-base">
           {name} <span className="uppercase">({symbol})</span>
         </h3>
-        <div className="flex w-full dark:text-[#D1D1D1] text-[#424286] mt-1">
+        <div className="mt-1 flex w-full text-[#424286] dark:text-[#D1D1D1]">
           <h3 className="pr-2">
             {formatCurrency(currentPrice, currency)}
             <span className="uppercase">{currency}</span>
