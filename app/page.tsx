@@ -22,7 +22,11 @@ export default function HomePage({ searchParams }: HomePageProps) {
     <>
       <Header />
       <main className="container flex flex-col gap-6 px-3 py-6">
-        <CoinsCarouselLayout currency={currency.toString()} />
+        <CoinsCarouselLayout
+          currency={currency.toString()}
+          selectedCoin1={selected_coin_1.toString()}
+          selectedCoin2={selected_coin_2.toString()}
+        />
 
         <CoinsTable
           currency={currency.toString()}
