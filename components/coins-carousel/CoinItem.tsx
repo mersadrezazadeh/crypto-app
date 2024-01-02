@@ -33,11 +33,17 @@ function CoinItem({ currency, coin }: CoinItemProps) {
   const selectedCoin = searchParams.get("selected_coin") ?? "bitcoin";
 
   function handleSelectCoin() {
+    if (selectedCoin === id) return;
+
     router.push(`/?selected_coin=${id}&currency=${currency}`);
   }
 
   return (
-    <motion.div className="flex min-w-64 items-center rounded-lg bg-gray-0 px-2 py-4 text-sm">
+    <motion.div
+      className={`flex min-w-64 items-center rounded-lg  px-2 py-4 text-sm ${
+        selectedCoin === id ? "bg-brand-400" : "bg-gray-0 "
+      }`}
+    >
       <div className="pr-3">
         <Image
           src={image}
