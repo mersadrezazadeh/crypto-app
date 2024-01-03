@@ -7,6 +7,7 @@ import CoinItem from "./CoinItem";
 type CarouselProps = {
   currency: string;
   coins: any;
+  selectedCoin: string;
 };
 
 function Carousel({ currency, coins }: CarouselProps) {

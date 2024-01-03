@@ -1,6 +1,7 @@
 import Header from "../components/header/Header";
 import CoinStatsLayout from "@/components/coin-stats/CoinStatsLayout";
 import CoinsTable from "@/components/coins-table/CoinsTable";
+import { setCurrency, setSelectedCoin } from "@/contexts/ServerContext";
 
 type HomePageProps = {
   searchParams: {
@@ -11,7 +12,10 @@ type HomePageProps = {
 export default function HomePage({ searchParams }: HomePageProps) {
   const currency = searchParams["currency"] ?? "usd";
 
-  const selected_coin = searchParams["selected_coin"] ?? "bitcoin";
+  setCurrency(searchParams["currency"]?.toString() ?? "usd");
+  setSelectedCoin(searchParams["selected_coin"]?.toString() ?? "bitcoin");
+
+  // const selected_coin = searchParams["selected_coin"] ?? "bitcoin";
 
   const time = searchParams["time"] ?? "1";
 
@@ -25,10 +29,7 @@ export default function HomePage({ searchParams }: HomePageProps) {
     <>
       <Header />
       <main className="container flex flex-col gap-6 px-3 py-6">
-        <CoinStatsLayout
-          currency={currency.toString()}
-          selectedCoin={selected_coin.toString()}
-        />
+        <CoinStatsLayout />
 
         <CoinsTable
           currency={currency.toString()}

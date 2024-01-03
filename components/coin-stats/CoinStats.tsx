@@ -82,24 +82,9 @@ function CoinStats({ data: { prices }, time }: CoinStatsProps) {
   };
 
   return (
-    <div className="grid h-64 grid-cols-2 gap-4">
+    <div className="h-64">
       <div className="rounded-lg bg-gray-0 p-2">
         <Line data={data} options={options} />
-      </div>
-      <div className="rounded-lg bg-gray-0 p-2">
-        <Bar
-          data={{
-            labels: Array.from(Array(dataSet.length).keys()),
-            datasets: [
-              {
-                backgroundColor: "#7878FA",
-                barThickness: 5,
-                data: dataSet,
-              },
-            ],
-          }}
-          options={options}
-        />
       </div>
     </div>
   );

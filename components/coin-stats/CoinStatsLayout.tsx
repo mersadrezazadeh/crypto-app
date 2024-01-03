@@ -1,18 +1,13 @@
 import { getCoinStats, getTableCoins } from "@/utils/actions";
 import Carousel from "./Carousel";
 import CoinStats from "./CoinStats";
-
-type CoinStatsLayoutProps = {
-  currency: string;
-  selectedCoin: string;
-};
+import { getCurrency, getSelectedCoin } from "@/contexts/ServerContext";
 
 const NUM_COINS = 50;
 
-async function CoinStatsLayout({
-  currency,
-  selectedCoin,
-}: CoinStatsLayoutProps) {
+async function CoinStatsLayout() {
+  const currency = getCurrency();
+  const selectedCoin = getSelectedCoin();
   const coins = await getTableCoins(currency, 1, NUM_COINS);
   const coinData = await getCoinStats(
     selectedCoin,
@@ -23,7 +18,7 @@ async function CoinStatsLayout({
 
   return (
     <>
-      <Carousel coins={coins} currency={currency} />
+      <Carousel coins={coins} currency={currency} selectedCoin={selectedCoin} />
       <CoinStats data={coinData} time="1" />
     </>
   );

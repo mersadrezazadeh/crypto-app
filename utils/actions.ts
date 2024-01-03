@@ -1,3 +1,5 @@
+import { setSelectedCoin } from "@/contexts/ServerContext";
+
 const URL = "https://api.coingecko.com/api/v3/coins";
 const API_KEY = "CG-dDPMf8v1kFW8Q4DZjkScwkqi";
 
