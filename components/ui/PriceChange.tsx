@@ -5,7 +5,7 @@ function PriceChange({ value }: { value: number }) {
 
   return (
     <div
-      className={`flex items-center gap-0.5 ${
+      className={`flex items-center gap-0.5 text-base font-medium ${
         isPositive ? "text-green-200" : "text-red-200"
       }`}
     >
