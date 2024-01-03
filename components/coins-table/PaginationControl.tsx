@@ -17,16 +17,32 @@ function PaginationControl({
   const router = useRouter();
   const searchParams = useSearchParams();
 
+  console.log(router);
+
   const page = searchParams.get("page") ?? "1";
-  const per_page = searchParams.get("per_page") ?? "100";
+  const perPage = searchParams.get("per_page") ?? "100";
+  const currency = searchParams.get("currency") ?? "usd";
+  const selectedCoin = searchParams.get("selected_coin") ?? "bitcoin";
+
+  function handlePrev() {
+    router.push(
+      `/?page=${
+        +page - 1
+      }&per_page=${perPage}?currency=${currency}?selected_coin=${selectedCoin}`,
+    );
+  }
+
+  function handleNext() {
+    router.push(
+      `/?page=${
+        +page + 1
+      }&Per_page=${perPage}?currency=${currency}?selected_coin=${selectedCoin}`,
+    );
+  }
 
   return (
-    <div className="text-gray-900 flex gap-8">
-      <Button
-        size="small"
-        disabled={!hasPrevPage}
-        onClick={() => router.push(`/?page=${+page - 1}&per_page=${per_page}`)}
-      >
+    <div className="flex gap-8 text-gray-900">
+      <Button size="small" disabled={!hasPrevPage} onClick={handlePrev}>
         Prev
       </Button>
 
@@ -34,11 +50,7 @@ function PaginationControl({
         {page} / {maxPage}
       </span>
 
-      <Button
-        size="small"
-        disabled={!hasNextPage}
-        onClick={() => router.push(`/?page=${+page + 1}&Per_page=${per_page}`)}
-      >
+      <Button size="small" disabled={!hasNextPage} onClick={handleNext}>
         Next
       </Button>
     </div>

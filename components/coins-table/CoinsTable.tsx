@@ -1,24 +1,18 @@
 import { getAllCoins, getTableCoins } from "@/utils/actions";
 import CoinRow, { type Coin } from "./CoinRow";
 import PaginationControl from "./PaginationControl";
+import { getCurrency, getPage, getPerPage } from "@/contexts/ServerContext";
 
-type CoinsTableProps = {
-  currency: string;
-  page: number;
-  per_page: number;
-  start: number;
-  end: number;
-};
+async function CoinsTable() {
+  const currency = getCurrency();
+  const page = +getPage();
+  const perPage = +getPerPage();
 
-async function CoinsTable({
-  currency,
-  page,
-  per_page,
-  start,
-  end,
-}: CoinsTableProps) {
   const allCoins = await getAllCoins();
-  const coins = await getTableCoins(currency, page, per_page);
+  const coins = await getTableCoins(currency, page, perPage);
+
+  const start = (page - 1) * perPage;
+  const end = start + perPage;
 
   if (!allCoins || !coins) return <p>Loading...</p>;
 
@@ -57,7 +51,7 @@ async function CoinsTable({
         <PaginationControl
           hasNextPage={end < allCoins?.length}
           hasPrevPage={start > 0}
-          maxPage={Math.ceil(allCoins?.length / per_page)}
+          maxPage={Math.ceil(allCoins?.length / perPage)}
         />
       </footer>
     </div>
