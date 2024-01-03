@@ -4,7 +4,7 @@ function PriceChange({ value }: { value: number }) {
   return (
     <div>
       <span className={`${isPositive ? "text-green-200" : "text-red-200"}`}>
-        {value.toFixed(2)}%
+        {value?.toFixed(2)}%
       </span>
     </div>
   );

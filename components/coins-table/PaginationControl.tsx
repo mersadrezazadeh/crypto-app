@@ -28,7 +28,7 @@ function PaginationControl({
     router.push(
       `/?page=${
         +page - 1
-      }&per_page=${perPage}?currency=${currency}?selected_coin=${selectedCoin}`,
+      }&per_page=${perPage}&currency=${currency}&selected_coin=${selectedCoin}`,
     );
   }
 
@@ -36,7 +36,7 @@ function PaginationControl({
     router.push(
       `/?page=${
         +page + 1
-      }&Per_page=${perPage}?currency=${currency}?selected_coin=${selectedCoin}`,
+      }&Per_page=${perPage}&currency=${currency}&selected_coin=${selectedCoin}`,
     );
   }
 

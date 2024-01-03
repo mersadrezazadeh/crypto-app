@@ -1,4 +1,4 @@
-import CurrencyToggle from "./CurrencyToggle";
+import CurrencySelector from "./CurrencySelector";
 import ThemeSwitcher from "./ThemeSwitcher";
 import Logo from "./Logo";
 import MainNav from "./MainNav";
@@ -7,11 +7,11 @@ import User from "./User";
 
 function Header() {
   return (
-    <header className="flex justify-between bg-gray-50 dark:bg-gray-850 text-brand-700 py-3 px-6 items-center">
+    <header className="flex items-center justify-between bg-gray-50 px-6 py-3 text-brand-700 dark:bg-gray-850">
       <Logo />
       <MainNav />
       <SearchBar />
-      <CurrencyToggle />
+      <CurrencySelector />
       <ThemeSwitcher />
       <User />
     </header>
