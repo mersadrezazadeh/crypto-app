@@ -1,4 +1,4 @@
-import { getCoinStats, getTableCoins } from "@/services/apiCoins";
+import { getCoinStats, getTableCoins } from "@/utils/actions";
 import Carousel from "./Carousel";
 import CoinStats from "./CoinStats";
 

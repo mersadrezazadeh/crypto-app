@@ -1,4 +1,4 @@
-import { getCoinDetails } from "@/services/apiCoins";
+import { getCoinDetails } from "@/utils/actions";
 import CoinOverview from "./CoinOverview";
 import CoinChart from "./CoinChart";
 import CoinMarket from "./CoinMarket";

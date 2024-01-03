@@ -1,4 +1,4 @@
-import { getAllCoins, getTableCoins } from "@/services/apiCoins";
+import { getAllCoins, getTableCoins } from "@/utils/actions";
 import CoinRow, { type Coin } from "./CoinRow";
 import PaginationControl from "./PaginationControl";
 
@@ -31,16 +31,16 @@ async function CoinsTable({
         role="row"
         className="flex items-center gap-2 rounded-t-lg border-b border-gray-100 bg-gray-50 px-3 py-4 text-gray-600 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-300"
       >
-        <div className="text-center w-[3%]">#</div>
+        <div className="w-[3%] text-center">#</div>
         <div className="w-[4%]"></div>
-        <div className="text-center w-[13%]">Name</div>
-        <div className="text-center w-[7%]">Price</div>
-        <div className="text-center w-[7%]">24h%</div>
-        <div className="text-center w-[7%]">1h%</div>
-        <div className="text-center w-[7%]">7d%</div>
-        <div className="text-center w-[18]">24h volume/Market Cap</div>
-        <div className="text-center w-[18%]">Circulating/Total supply</div>
-        <div className="text-center w-[14%]">Last 7d</div>
+        <div className="w-[13%] text-center">Name</div>
+        <div className="w-[7%] text-center">Price</div>
+        <div className="w-[7%] text-center">24h%</div>
+        <div className="w-[7%] text-center">1h%</div>
+        <div className="w-[7%] text-center">7d%</div>
+        <div className="w-[18] text-center">24h volume/Market Cap</div>
+        <div className="w-[18%] text-center">Circulating/Total supply</div>
+        <div className="w-[14%] text-center">Last 7d</div>
       </div>
 
       {coins.length === 0 ? (

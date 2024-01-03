@@ -6,6 +6,10 @@ export async function getAllCoins() {
     next: { revalidate: 300 },
   });
 
+  if (!response.ok) {
+    throw new Error("Failed to fetch data");
+  }
+
   return response.json();
 }
 
@@ -19,6 +23,10 @@ export async function getTableCoins(
     { next: { revalidate: 60 } },
   );
 
+  if (!response.ok) {
+    throw new Error("Failed to fetch data");
+  }
+
   return response.json();
 }
 
@@ -27,6 +35,10 @@ export async function getCoinDetails(id: string) {
     `${URL}/${id}?market_data=true&community_data=true&sparkline=true&x_cg_demo_api_key=${API_KEY}`,
     { next: { revalidate: 60 } },
   );
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch data");
+  }
 
   return response.json();
 }
@@ -41,6 +53,10 @@ export async function getCoinStats(
     `${URL}/${id}/market_chart/range?vs_currency=${currency}&from=${from}&to=${to}&x_cg_demo_api_key=${API_KEY}`,
     { next: { revalidate: 300 } },
   );
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch data");
+  }
 
   return response.json();
 }
