@@ -1,5 +1,6 @@
 "use client";
 
+import { formatDate } from "@/utils/helpers";
 import {
   Chart as ChartJS,
   BarElement,
@@ -82,8 +83,11 @@ function CoinStats({ data: { prices }, time }: CoinStatsProps) {
   };
 
   return (
-    <div className="h-64">
-      <div className="rounded-lg bg-gray-0 p-2">
+    <div className="rounded-lg bg-gray-0 p-2">
+      <p className="text-lg font-medium">
+        {formatDate(new Date().toDateString())}
+      </p>
+      <div>
         <Line data={data} options={options} />
       </div>
     </div>
