@@ -30,10 +30,15 @@ function CoinItem({ currency, coin }: CoinItemProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
 
+  const page = searchParams.get("page") ?? "1";
+  const perPage = searchParams.get("per_page") ?? "100";
   const selectedCoin = searchParams.get("selected_coin") ?? "bitcoin";
 
   function handleSelectCoin() {
     if (selectedCoin === id) return;
+    `/?page=${
+      +page + 1
+    }&Per_page=${perPage}?selected_coin=${id}?currency=${currency}`;
 
     router.push(`/?selected_coin=${id}&currency=${currency}`);
   }
