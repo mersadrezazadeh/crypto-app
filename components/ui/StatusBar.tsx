@@ -22,14 +22,10 @@ function StatusBar({
 }: StatusBarProps) {
   return (
     <>
-      <div className="flex justify-between">
-        <span className="font-medium" style={{ color: textColor }}>
-          {formatLargeNumber(value1)}
-        </span>
+      <div className="flex justify-between text-[8px] font-medium sm:text-[10px] md:text-[13px]">
+        <span style={{ color: textColor }}>{formatLargeNumber(value1)}</span>
 
-        <span className="font-medium text-gray-400">
-          {formatLargeNumber(value2)}
-        </span>
+        <span className="text-gray-400">{formatLargeNumber(value2)}</span>
       </div>
 
       <ProgressBar

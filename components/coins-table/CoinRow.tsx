@@ -45,9 +45,9 @@ function CoinRow({ coin, currency }: CoinRowProps) {
   return (
     <div
       role="row"
-      className="flex items-center border-b border-gray-100 px-3 py-6 text-gray-900 last:border-0 dark:border-gray-800"
+      className="flex items-center border-b border-gray-100 px-1 py-6 text-gray-900 last:border-0 md:px-3 dark:border-gray-800"
     >
-      <div className="w-[3%] text-center text-base font-medium">
+      <div className="w-[3%] text-center text-[10px] font-medium md:text-base">
         {marketCapRank}
       </div>
 
@@ -55,9 +55,11 @@ function CoinRow({ coin, currency }: CoinRowProps) {
         <Image src={image} alt={name} width={30} height={30} />
       </div>
 
-      <CoinLink id={id} name={name} symbol={symbol} />
+      <div className="w-[13%] justify-center text-center text-[10px] font-medium md:text-base">
+        <CoinLink id={id} name={name} symbol={symbol} />
+      </div>
 
-      <div className="w-[8%] text-center text-base font-medium">
+      <div className="w-[8%] text-center text-[10px] font-medium md:text-base">
         {formatCurrency(currentPrice, currency)}
       </div>
 
@@ -73,7 +75,7 @@ function CoinRow({ coin, currency }: CoinRowProps) {
         <PriceChange value={priceChange7d} />
       </div>
 
-      <div className="w-[18%] px-2">
+      <div className="w-[18%] px-1 sm:px-2">
         <StatusBar
           value1={totalVolume}
           value2={marketCap}
@@ -84,7 +86,7 @@ function CoinRow({ coin, currency }: CoinRowProps) {
         />
       </div>
 
-      <div className="w-[18%] px-2">
+      <div className="w-[18%] px-1 sm:px-2">
         <StatusBar
           value1={circulatingSupply}
           value2={totalSupply}

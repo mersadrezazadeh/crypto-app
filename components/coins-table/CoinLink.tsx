@@ -14,10 +14,7 @@ function CoinLink({ id, name, symbol }: CoinLinkProps) {
   const currency = searchParams.get("currency") ?? "usd";
 
   return (
-    <Link
-      href={`/${id}?currency=${currency}`}
-      className="flex w-[13%] justify-center text-center text-base font-medium"
-    >
+    <Link href={`/${id}?currency=${currency}`}>
       {name} ({symbol})
     </Link>
   );
