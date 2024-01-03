@@ -16,7 +16,7 @@ function CoinLink({ id, name, symbol }: CoinLinkProps) {
   return (
     <Link
       href={`/${id}?currency=${currency}`}
-      className="flex justify-center text-center w-[13%]"
+      className="flex w-[13%] justify-center text-center text-base font-medium"
     >
       {name} ({symbol})
     </Link>

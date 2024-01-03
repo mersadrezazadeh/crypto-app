@@ -23,9 +23,13 @@ function StatusBar({
   return (
     <>
       <div className="flex justify-between">
-        <span style={{ color: textColor }}>{formatLargeNumber(value1)}</span>
+        <span className="font-medium" style={{ color: textColor }}>
+          {formatLargeNumber(value1)}
+        </span>
 
-        <span>{formatLargeNumber(value2)}</span>
+        <span className="font-medium text-gray-400">
+          {formatLargeNumber(value2)}
+        </span>
       </div>
 
       <ProgressBar

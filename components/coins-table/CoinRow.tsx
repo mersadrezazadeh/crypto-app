@@ -45,17 +45,19 @@ function CoinRow({ coin, currency }: CoinRowProps) {
   return (
     <div
       role="row"
-      className="flex items-center border-b border-gray-100 px-3 py-6 last:border-0 dark:border-gray-800 text-gray-900"
+      className="flex items-center border-b border-gray-100 px-3 py-6 text-gray-900 last:border-0 dark:border-gray-800"
     >
-      <div className="w-[3%] text-center">{marketCapRank}</div>
+      <div className="w-[3%] text-center text-base font-medium">
+        {marketCapRank}
+      </div>
 
-      <div className="w-[5%] flex justify-center">
+      <div className="flex w-[5%] justify-center">
         <Image src={image} alt={name} width={30} height={30} />
       </div>
 
       <CoinLink id={id} name={name} symbol={symbol} />
 
-      <div className="w-[8%] text-center">
+      <div className="w-[8%] text-center text-base font-medium">
         {formatCurrency(currentPrice, currency)}
       </div>
 
