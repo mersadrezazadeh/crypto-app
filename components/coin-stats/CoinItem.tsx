@@ -40,7 +40,7 @@ function CoinItem({ currency, coin }: CoinItemProps) {
     router.push(
       `/?page=${
         +page + 1
-      }&Per_page=${perPage}&selected_coin=${id}&currency=${currency}`,
+      }&per_page=${perPage}&selected_coin=${id}&currency=${currency}`,
     );
   }
 

@@ -3,12 +3,12 @@ import Carousel from "./Carousel";
 import CoinStats from "./CoinStats";
 import { getCurrency, getSelectedCoin } from "@/contexts/ServerContext";
 
-const NUM_COINS = 50;
+const NUM_COINS = "50";
 
 async function CoinStatsLayout() {
   const currency = getCurrency();
   const selectedCoin = getSelectedCoin();
-  const coins = await getTableCoins(currency, 1, NUM_COINS);
+  const coins = await getTableCoins(currency, "1", NUM_COINS);
   const coinData = await getCoinStats(
     selectedCoin,
     currency,

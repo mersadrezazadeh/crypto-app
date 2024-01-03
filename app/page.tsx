@@ -20,14 +20,13 @@ export default function HomePage({ searchParams }: HomePageProps) {
   setPage(searchParams["page"]?.toString() ?? "1");
   setPerPage(searchParams["per_page"]?.toString() ?? "100");
 
-  const time = searchParams["time"] ?? "1";
+  // const time = searchParams["time"] ?? "1";
 
   return (
     <>
       <Header />
       <main className="container flex flex-col gap-6 px-3 py-6">
         <CoinStatsLayout />
-
         <CoinsTable />
       </main>
     </>

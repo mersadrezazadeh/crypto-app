@@ -15,13 +15,9 @@ export async function getAllCoins() {
   return response.json();
 }
 
-export async function getTableCoins(
-  currency: string,
-  page: number,
-  per_page: number,
-) {
+export async function getTableCoins(currency: string, page: string, perPage: string) {
   const response = await fetch(
-    `${URL}/markets?vs_currency=${currency}&order=market_cap_desc&per_page=${per_page}&page=${page}&sparkline=true&price_change_percentage=1h%2C24h%2C7d&locale=en&x_cg_demo_api_key=${API_KEY}`,
+    `${URL}/markets?vs_currency=${currency}&order=market_cap_desc&per_page=${perPage}&page=${page}&sparkline=true&price_change_percentage=1h%2C24h%2C7d&locale=en&x_cg_demo_api_key=${API_KEY}`,
     { next: { revalidate: 60 } },
   );
 

@@ -2,7 +2,7 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 
-function CurrencySelector() {
+function PerPageSelector() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -13,18 +13,19 @@ function CurrencySelector() {
 
   function handleChange(value: string) {
     router.push(
-      `/?page=${page}&per_page=${perPage}&currency=${value}&selected_coin=${selectedCoin}`,
+      `/?page=${page}&per_page=${value}&currency=${currency}&selected_coin=${selectedCoin}`,
     );
   }
 
   return (
-    <select value={currency} onChange={(e) => handleChange(e.target.value)}>
-      <option value="usd">USD</option>
-      <option value="eur">EUR</option>
-      <option value="gbp">GBP</option>
-      <option value="jpy">JPY</option>
+    <select value={perPage} onChange={(e) => handleChange(e.target.value)}>
+      <option value="20">20</option>
+      <option value="50">50</option>
+      <option value="100">100</option>
+      <option value="150">150</option>
+      <option value="200">200</option>
     </select>
   );
 }
 
-export default CurrencySelector;
+export default PerPageSelector;
