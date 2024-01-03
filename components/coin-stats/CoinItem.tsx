@@ -36,11 +36,12 @@ function CoinItem({ currency, coin }: CoinItemProps) {
 
   function handleSelectCoin() {
     if (selectedCoin === id) return;
-    `/?page=${
-      +page + 1
-    }&Per_page=${perPage}?selected_coin=${id}?currency=${currency}`;
 
-    router.push(`/?selected_coin=${id}&currency=${currency}`);
+    router.push(
+      `/?page=${
+        +page + 1
+      }&Per_page=${perPage}?selected_coin=${id}?currency=${currency}`,
+    );
   }
 
   return (
